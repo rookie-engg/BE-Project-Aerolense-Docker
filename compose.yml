@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: ./
+      target: final
+    ports:
+      - 8000:80
+    develop:
+      watch:
+        - path: ./
+          action: sync
+          target: /usr/local/app/
+        - path: ./requirements.txt
+          action: rebuild
+          
